@@ -1,0 +1,1 @@
+az deployment group create --name "storageDeployment" --resource-group "FH_WN" --template-file "azuredeploy.json" --parameters "azuredeploy.paramters.json"
