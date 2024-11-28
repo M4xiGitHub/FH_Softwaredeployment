@@ -14,6 +14,9 @@ Production (Prod):
 !['error'](screenshots/success_and_fail.png)
 ## Release Pipeline
 !['error'](screenshots/success_release_pipe.png)
+## Insight
+!['error'](screenshots/insight.png)
+
 
 
 
