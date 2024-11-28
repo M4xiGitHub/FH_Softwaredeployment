@@ -10,6 +10,24 @@ on:
       - main
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test Lab2 Backend
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+      - name: NPM install
+        run: |
+          cd Lab2/backend
+          npm install
+      - name: testing
+        run: |
+          cd Lab2/backend
+          npm test
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
