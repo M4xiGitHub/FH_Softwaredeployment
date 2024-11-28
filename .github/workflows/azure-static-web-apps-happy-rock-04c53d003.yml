@@ -34,8 +34,6 @@ jobs:
            result-encoding: string
       - name: Install
         run: npm install
-      - name: Run tests
-        run: npm run test
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -51,6 +49,8 @@ jobs:
           github_id_token: ${{ steps.idtoken.outputs.result }}
           #app_artifact_location: "Lab2/index.html"
           ###### End of Repository/Build Configurations ######
+      - name: Run tests
+        run: npm run test
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
