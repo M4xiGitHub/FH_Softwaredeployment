@@ -1,0 +1,32 @@
+services:
+  wordpress:
+    build:
+      context: ./wordpress
+      dockerfile: Dockerfile.wordpress
+    container_name: custom-wordpress
+    ports:
+      - "8081:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpresspassword
+      WORDPRESS_DB_NAME: wordpressdb
+    volumes:
+      - wordpress_data:/var/www/html
+
+  mysql:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile.mysql
+    container_name: custom-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpressdb
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpresspassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  wordpress_data:
+  mysql_data:

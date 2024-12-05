@@ -1,0 +1,11 @@
+# Dockerfile for MySQL
+FROM ubuntu:latest
+
+# I couldn't figure out how to run it on debian :(
+# Install MySQL
+RUN apt-get update 
+RUN apt-get install -y mysql-server 
+
+# Expose port and initialize MySQL
+EXPOSE 3306
+CMD ["mysqld"]
